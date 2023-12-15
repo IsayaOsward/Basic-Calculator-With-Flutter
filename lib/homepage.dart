@@ -1,9 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:calculator/buildButton.dart';
 import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
   State<Home> createState() => _HomeState();
 }
@@ -185,45 +188,5 @@ class _HomeState extends State<Home> {
     double eval = exp.evaluate(EvaluationType.REAL, cm);
 
     userAnswer = eval.toString();
-  }
-}
-
-class MyButton extends StatelessWidget {
-  final String operator;
-  final Color CoverColor;
-  final Color ContentColor;
-  final buttonTapped;
-  const MyButton({
-    super.key,
-    required this.operator,
-    required this.CoverColor,
-    required this.ContentColor,
-    required this.buttonTapped,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: buttonTapped,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Container(
-              height: 20,
-              width: 20,
-              color: CoverColor,
-              child: Center(
-                child: Text(
-                  operator,
-                  style: TextStyle(
-                    fontSize: 45,
-                    color: ContentColor,
-                  ),
-                ),
-              ),
-            )),
-      ),
-    );
   }
 }
